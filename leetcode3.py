@@ -72,25 +72,52 @@
 """
     leetcode 160: intersection of two linked lists
 """
-def getIntersectionNode(self, headA, headB):
-    stackA = ['A']
-    stackB = ['B']
+# def getIntersectionNode(self, headA, headB):
+#     stackA = ['A']
+#     stackB = ['B']
 
-    while headA or headB:
-        if headA:
-            stackA.append(headA)
-            headA = headA.next
+#     while headA or headB:
+#         if headA:
+#             stackA.append(headA)
+#             headA = headA.next
 
-        if headB:
-            stackB.append(headB)
-            headB = headB.next
+#         if headB:
+#             stackB.append(headB)
+#             headB = headB.next
 
-    prev = None
-    while stackA and stackB:
-        nodeA = stackA.pop(-1)
-        nodeB = stackB.pop(-1)
+#     prev = None
+#     while stackA and stackB:
+#         nodeA = stackA.pop(-1)
+#         nodeB = stackB.pop(-1)
 
-        if nodeA != nodeB:
-            return prev
+#         if nodeA != nodeB:
+#             return prev
 
-        prev = nodeA
+#         prev = nodeA
+
+"""
+    leetcode 15: threesum
+"""
+# def threeSum(self, nums):
+#     target = 0
+#     nums.sort()
+#     triples = set()
+#     for i, a in enumerate(nums):
+#         if a > 0:
+#             break
+#         if i > 0 and a == nums[i-1]:
+#             continue
+#         j = i + 1
+#         k = len(nums)-1
+#         while j < k:
+#             total = nums[i] + nums[j] + nums[k]
+#             if total == target:
+#                 triples.add((nums[i], nums[j], nums[k]))
+#                 j += 1
+#                 k -= 1
+#             elif total < target:
+#                 j += 1
+#             else:
+#                 k -= 1
+
+#     return list(triples)
