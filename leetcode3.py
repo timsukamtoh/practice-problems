@@ -121,3 +121,46 @@
 #                 k -= 1
 
 #     return list(triples)
+
+"""
+    input: given a root of a node
+    output: boolean if entire tree is a valid BST
+
+    ex:
+    [5, 1, 6, null ,null, 3, 7] => invalid
+    [5, 2, 8, null ,3, 6, 9, 1] => invalid
+    [2,1,3] => valid
+
+    initiate a seen values
+    define recurisve function
+        if we get to a leaf node
+            return true
+        if left is greater than root
+            return false
+        if right is smaller than root
+            return false
+        otherwise
+            make a copy of our seen values + left
+            update our seen values + right
+            check if every value in right is greater than root AND every value left of root is smaller
+
+    return execute recursive call
+
+
+"""
+# def validate_bst(root):
+#     if not root:
+#         return True
+
+#     def validate_values(node, lower, upper): #2
+#         if not node.left and not node.right:
+
+#             return True
+#         if (node.left and node.left.val > node.val) or (node.left.val > lower):
+#             return False
+#         if (node.right and node.right.val < node.val) or (node.right.val < upper): #3
+#             return False
+#         return validate_values(node.left, lower, node.val) and validate_values(node.right, node.val, upper)
+
+#     return validate_values(root, -infinity, Infinity)
+
