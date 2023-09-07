@@ -164,3 +164,19 @@
 
 #     return validate_values(root, -infinity, Infinity)
 
+"""
+    leetcode 46: Permutations
+"""
+def permute(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: List[List[int]]
+    """
+    permutations = []
+    def choose_and_permute(perm, remaining)
+        if not remaining:
+            permutations.append(perm)
+        else:
+            while remaining:
+                curr_val = remaining.pop()
+
