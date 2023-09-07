@@ -167,23 +167,47 @@
 """
     leetcode 46: Permutations
 """
-def permute(self, nums):
-    """
-    :type nums: List[int]
-    :rtype: List[List[int]]
-    """
-    permutations = []
-    def backtrack(curr):
-        if len(curr) == len(nums):
-            permutations.append(curr[:])
-            return
+# def permute(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: List[List[int]]
+#     """
+#     permutations = []
+#     def backtrack(curr):
+#         if len(curr) == len(nums):
+#             permutations.append(curr[:])
+#             return
 
-        for num in nums:
-            if num not in curr:
-                curr.append(num)
-                backtrack(curr)
-                curr.pop()
+#         for num in nums:
+#             if num not in curr:
+#                 curr.append(num)
+#                 backtrack(curr)
+#                 curr.pop()
 
-    backtrack([])
-    return permutations
+#     backtrack([])
+#     return permutations
 
+
+"""
+    input: given a root, and int k
+    output: return kth smallest value
+
+    ex ipnut: ([3, 1, 4, null, 2], 1) =>  1
+    positve, unique, and at least 1 node
+
+
+            3
+          /   \
+        1       4
+          \
+            2
+
+    initiate list for all tree values
+    recursively, traverse through tree
+        store tree values in list of tree values
+
+    sort list
+    return k-1 from start of list
+
+
+"""
