@@ -173,10 +173,17 @@ def permute(self, nums):
     :rtype: List[List[int]]
     """
     permutations = []
-    def choose_and_permute(perm, remaining)
-        if not remaining:
-            permutations.append(perm)
-        else:
-            while remaining:
-                curr_val = remaining.pop()
+    def backtrack(curr):
+        if len(curr) == len(nums):
+            permutations.append(curr[:])
+            return
+
+        for num in nums:
+            if num not in curr:
+                curr.append(num)
+                backtrack(curr)
+                curr.pop()
+
+    backtrack([])
+    return permutations
 
