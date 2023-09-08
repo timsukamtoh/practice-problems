@@ -211,3 +211,22 @@
 
 
 """
+
+def kthSmallest(self, root, k):
+    """
+    :type root: TreeNode
+    :type k: int
+    :rtype: int
+    """
+    node_vals = []
+    def traverse(node):
+        if not node:
+            return
+        else:
+            node_vals.append(node.val)
+            traverse(node.left)
+            traverse(node.right)
+
+    traverse(root)
+    node_vals.sort()
+    return node_vals[k-1]
