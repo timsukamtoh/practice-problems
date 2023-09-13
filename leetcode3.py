@@ -212,21 +212,49 @@
 
 """
 
-def kthSmallest(self, root, k):
-    """
-    :type root: TreeNode
-    :type k: int
-    :rtype: int
-    """
-    node_vals = []
-    def traverse(node):
-        if not node:
-            return
-        else:
-            node_vals.append(node.val)
-            traverse(node.left)
-            traverse(node.right)
+# def kthSmallest(self, root, k):
+#     """
+#     :type root: TreeNode
+#     :type k: int
+#     :rtype: int
+#     """
+#     node_vals = []
+#     def traverse(node):
+#         if not node:
+#             return
+#         else:
+#             node_vals.append(node.val)
+#             traverse(node.left)
+#             traverse(node.right)
 
-    traverse(root)
-    node_vals.sort()
-    return node_vals[k-1]
+#     traverse(root)
+#     node_vals.sort()
+#     return node_vals[k-1]
+
+"""
+    leetcode 105: Construct binary tree from preorder and inorder transversal
+"""
+# def buildTree(self, preorder, inorder):
+#     """
+#     :type preorder: List[int]
+#     :type inorder: List[int]
+#     :rtype: TreeNode
+#     """
+
+#     if len(preorder) <= 0:
+#         return None
+
+#     current_node = TreeNode(preorder[0])
+
+#     index_of_curr = inorder.index(current_node.val)
+#     left_in_order = inorder[:index_of_curr]
+#     right_in_order = inorder[index_of_curr+1:]
+
+#     left_pre_order = preorder[1:1+len(left_in_order)]
+#     right_pre_order = preorder[1+len(left_in_order):]
+
+#     current_node.left = self.buildTree(left_pre_order, left_in_order)
+#     current_node.right = self.buildTree(right_pre_order, right_in_order)
+
+#     return current_node
+
