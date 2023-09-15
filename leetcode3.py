@@ -258,3 +258,37 @@
 
 #     return current_node
 
+"""
+    leetcode 103: Binary Tree Zigzag Level Order Traversal
+"""
+# def zigzagLevelOrder(self, root):
+#     """
+#     :type root: TreeNode
+#     :rtype: List[List[int]]
+#     """
+#     if not root:
+#         return []
+
+#     queue = [root]
+#     ltr = True
+#     result = []
+
+#     while queue:
+#         level = []
+#         size = len(queue)
+#         for i in range(size):
+#             curr = queue.pop(0)
+#             level.append(curr.val)
+#             if curr.left:
+#                 queue.append(curr.left)
+#             if curr.right:
+#                 queue.append(curr.right)
+
+#         if ltr:
+#             ltr = False
+#         else:
+#             level = level[::-1]
+#             ltr = True
+#         result.append(level)
+
+#     return result
