@@ -292,3 +292,37 @@
 #         result.append(level)
 
 #     return result
+
+
+
+
+"""
+    input: string containing digits from 2-9 inclusive
+    output: list of strings that have all combinations
+
+    ex "23" => [ "AD", "AE", "AF", "BD" ... ]
+
+    define string_permutations (string):
+        initiate digit to letter hashmap
+        n = len(string)
+
+        list of group of chars = {}
+        for every char in our input
+            append the value from key-value of string in hashmap to the list of groups
+
+        group of chars  = {"2":"abc", "3":"def",...,[w,x,y,z]}
+
+        output = []
+
+        def backtracking(current permutation = "", index=0):
+            if len(current_permutation) is equal n
+                output append current_permutation
+                return
+            for i in range (group of chars[string[index]]):
+                current_permutation add char at group[i]
+                call backtracking on the next group_of_chars(current permutation + i, index +1)
+
+        call backtracking on group of chars
+        return output
+
+"""
