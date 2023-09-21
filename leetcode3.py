@@ -366,14 +366,17 @@
 #     """
 #     perms = []
 #     options = ["(",")"]
-#     def add_parens(current_parens):
+#     def add_parens(left, right, current_parens):
 #         if len(current_parens) == 2*n:
 #             perms.append(current_parens)
-#         else:
+#             return
+#         if left < n:
 #             str1 = current_parens + "("
+#             add_parens(left + 1, right, str1)
+#         if right < left:
 #             str2 = current_parens + ")"
-#             add_parens(str1)
-#             add_parens(str2)
-#     add_parens("")
+#             add_parens(left, right+1, str2)
+#     add_parens(0,0,"")
 #     return perms
+
 
