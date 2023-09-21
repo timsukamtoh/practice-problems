@@ -328,7 +328,7 @@
 """
 """
     leetcode 79: word search
-    
+
     def check_word(string, row, col, seen):
             if len(string) == 0:
                 return True
@@ -356,3 +356,24 @@
                     return True
         return False
 """
+"""
+    leetcode 22: Generate Parenthesis
+"""
+# def generateParenthesis(self, n):
+#     """
+#     :type n: int
+#     :rtype: List[str]
+#     """
+#     perms = []
+#     options = ["(",")"]
+#     def add_parens(current_parens):
+#         if len(current_parens) == 2*n:
+#             perms.append(current_parens)
+#         else:
+#             str1 = current_parens + "("
+#             str2 = current_parens + ")"
+#             add_parens(str1)
+#             add_parens(str2)
+#     add_parens("")
+#     return perms
+
