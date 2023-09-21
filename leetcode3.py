@@ -326,3 +326,33 @@
         return output
 
 """
+"""
+    leetcode 79: word search
+    
+    def check_word(string, row, col, seen):
+            if len(string) == 0:
+                return True
+            if (row, col) in seen:
+                return False
+            if row < 0:
+                return False
+            if col < 0:
+                return False
+            if row >= len(board):
+                return False
+            if col >= len(board[row]):
+                return False
+            if string[0] != board[row][col]:
+                return False
+            print("row ",row , "col ", col)
+            seen.add((row,col))
+            return check_word(string[1:], row - 1, col, set(seen)) or check_word(string[1:], row, col - 1, set(seen)) or check_word(string[1:], row + 1, col, set(seen)) or check_word(string[1:], row, col + 1, set(seen))
+
+
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                seen = set()
+                if check_word(word, i, j, seen):
+                    return True
+        return False
+"""
