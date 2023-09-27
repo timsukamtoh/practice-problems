@@ -430,3 +430,31 @@
 #     recurive_build_palindrome(0)
 #     return list_of_palindromes
 
+"""
+    leetcode 56: merge intervals
+"""
+# def merge(self, intervals):
+#     """
+#     :type intervals: List[List[int]]
+#     :rtype: List[List[int]]
+#     """
+#     intervals.sort(key=lambda x:x[0])
+
+#     def check_next(index):
+#         if index >= len(intervals):
+#             return
+#         output_end = output[len(output)-1]
+#         if intervals[index][0] <= output_end[1]:
+#             start, end = output_end[0], intervals[index][1]
+#             if intervals[index][0] < output_end[0]:
+#                 start = intervals[index][0]
+#             if intervals[index][1] < output_end[1]:
+#                 end = output_end[1]
+#             output[len(output)-1] = [start, end]
+#         else:
+#             output.append(intervals[index])
+#         return check_next(index+1)
+
+#     output = [intervals[0]]
+#     check_next(1)
+#     return output
