@@ -379,4 +379,54 @@
 #     add_parens(0,0,"")
 #     return perms
 
+"""
+    input: given a string
+    output: return a list of list of strings where every string elem is a palindrome
+    "baab" => [[b,a,a,b],[b,aa,b], [baab]]
+    "bbaab" => [[b,b,a,a,b], [bb, a, a,b], [bb,aa,b],[b,b,aa,b], [b,baab]]
+
+    initiate list of palindromes
+    recursive function (index, current palindrome list)
+        if index >= len(string)
+            we can add the current palindrome list to list of palindromes
+            return
+        if string is palindrome then we
+            add to list of current list of palidromes
+        recursive function call on (string[index +1], current palindrome list)
+        recursive function call on (string[index] + string[index + 1], current palindrome list)
+
+
+
+    is palindrome function(string)
+        for i in range(len(string)):
+            if string at index i not equal to opposite end at string
+                return false
+        return true
+
+    "baab" => [[b,a,a,b],[b,aa,b], [baab]]
+    "bbaab" => [[b,b,a,a,b], [bb, a, a,b], [bb,aa,b],[b,b,aa,b], [b,baab]]
+"""
+# def generate_palindromes(string):
+
+#     def is_palindrome(string):
+#         for i in range(len(string)//2 + 1):
+#             if str1[i] != str1[len(str1)-1-i]:
+#                 return False
+
+#         return True
+
+#     list_of_palindromes = [] #[[b,a,a,b], ]
+#     current_palindrome = []
+#     #left =1  right=1
+#     def recurive_build_palindrome(index): #[b, a, aa,]
+#         if index > len(string):
+#             list_of_palindromes.append(current_palindrome)
+#             return
+#         for j in range(len(string)):
+#             if is_palindrome(string[index:j+1]):
+#                 current_palindrome.append(string[index:j+1])
+#                 recurive_build_palindrome(j+1)
+#                 current_palindrome.pop()
+#     recurive_build_palindrome(0)
+#     return list_of_palindromes
 
