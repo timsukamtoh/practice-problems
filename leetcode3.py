@@ -458,3 +458,38 @@
 #     output = [intervals[0]]
 #     check_next(1)
 #     return output
+
+
+"""
+    reverse polish notation examples:
+    ["2", "1", "+", "3", "*"] => 9
+    ["4", "13", "5", "/", "+"] => 6
+
+
+    initiate stack
+    initiate hashmap of string operator to actual operator
+    iterate through given array of strings
+        if string can be converted to int
+            append int to stack
+        otherwise
+            we retrieve operation from hashmap
+            pop off 2 values from the stack which will be our operands
+            append result of operation to stack
+
+    return last value of array
+"""
+
+def reverse_polish_math(values):
+    int_stack = []
+    operations = {"+":lambda (x,y): x+y, "*",lambda (x,y): x*y,"/":lambda (x,y): x/y, "-":lambda (x,y): x-y}
+
+    for val in values:
+        if val in operations:
+            second = int_stack.pop()
+            first = int_stack.pop()
+            result = operations[val](first, second)
+            int_stack.append(result)
+        else:
+            int_stack.append(int(val))
+
+    return int_stack.pop()
