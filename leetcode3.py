@@ -479,17 +479,49 @@
     return last value of array
 """
 
-def reverse_polish_math(values):
-    int_stack = []
-    operations = {"+":lambda (x,y): x+y, "*",lambda (x,y): x*y,"/":lambda (x,y): x/y, "-":lambda (x,y): x-y}
+# def reverse_polish_math(values):
+#     int_stack = []
+#     operations = {"+":lambda (x,y): x+y, "*",lambda (x,y): x*y,"/":lambda (x,y): x/y, "-":lambda (x,y): x-y}
 
-    for val in values:
-        if val in operations:
-            second = int_stack.pop()
-            first = int_stack.pop()
-            result = operations[val](first, second)
-            int_stack.append(result)
-        else:
-            int_stack.append(int(val))
+#     for val in values:
+#         if val in operations:
+#             second = int_stack.pop()
+#             first = int_stack.pop()
+#             result = operations[val](first, second)
+#             int_stack.append(result)
+#         else:
+#             int_stack.append(int(val))
 
-    return int_stack.pop()
+#     return int_stack.pop()
+
+"""leetcode 198: House Robber"""
+# def rob(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: int
+#     """
+
+#     # if len(nums) == 0:
+#     #     return 0
+#     # if len(nums) <= 2:
+#     #     return max(nums)
+#     # else:
+#     #     return max(nums[0] + self.rob(nums[2:]), nums[1] + self.rob(nums[3:]))
+
+#     #[9,1,1,9,1]
+
+
+#     robbed = [nums[0]] #[9, 1, 10, 18
+#     max_value = nums[0] # 10
+
+#     for i in range(1, len(nums)):
+#         if len(robbed) < 2:
+#             robbed.append(nums[i])
+#         else:
+#             max_money = robbed[i-2] + nums[i] #18
+#             if len(robbed) >= 3:
+#                 max_money = max(max_money, nums[i] + robbed[i-3])
+#             robbed.append(max_money)
+#         max_value = max(robbed[i], robbed[i-1])
+
+#     return max_value
