@@ -525,3 +525,62 @@
 #         max_value = max(robbed[i], robbed[i-1])
 
 #     return max_value
+
+"""
+    multiply strings
+
+    input: 2 non negative strings that are ints
+    return: the multiplication of 2 ints
+
+
+    cant use built in convert methods (on the inputs)
+
+    def multiply strings method
+        def convert string helper method takes in str
+            initiate number = 0
+            for char in str
+                number plus the conversion of the char to int multiplied by 10 raised to power index i
+            return number
+
+        execute helper on both strings
+        multiply both results together
+        return string version
+
+    "100" "20" => 2000
+    "0" "12321" => 0
+
+"""
+
+# def multiply_strings(str_int1, str_int2):
+#     def convert_string(string_int): #100
+#         number = 0
+#         size = len(string_int)
+#         for i in range(size):
+#             number += int(string_int[size-i-1]) * 10**i
+#         return number
+#     int1, int2 = convert_string(str_int1), convert_string(str_int2)
+#     return f"{int1 * int2}"
+
+
+"""
+    leetcode 647: palindromic Substrings
+"""
+# def countSubstrings(self, s):
+#     """
+#     :type s: str
+#     :rtype: int
+#     """
+#     start_to_end = [[False]*len(s) for letter in s]
+#     num_palindromes = len(s)
+
+#     for i in range(len(start_to_end)):
+#         start_to_end[i][i] = True
+#     for j in range(len(s)):
+#         for i in range(j):
+
+#             if s[i] == s[j] and (start_to_end[i+1][j-1] or j-i == 1):
+#                 num_palindromes += 1
+#                 start_to_end[i][j] = True
+#     print(start_to_end)
+
+#     return num_palindromes
