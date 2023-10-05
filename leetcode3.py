@@ -584,3 +584,48 @@
 #     print(start_to_end)
 
 #     return num_palindromes
+
+"""
+    input: given an array of ints
+    out: return nums of valid paris where a valid pair is a pair of ints that are only differing by at most 1 digit
+
+    [240, 241, 243, 1, 9] => 4
+
+    all non-negative
+
+    def solution
+        initiate counter for num pairs
+        convert array of ints into array of strs
+        iterate through the array of strs
+            double for loop compare current value to remaining values
+                initiate a digits off integer tracker to 0
+                check lens if not equal
+                    continue
+                iterate through str
+                    if a char within the str is not equal
+                        increment digits off
+                check if digits off is less than or equal 1
+                    increment num pairs
+        return num pairs
+
+"""
+
+# def valid_pairs(ints):
+#     num_pairs = 0 #4
+#     string_ints = ints.map(key=lambda x: f"{x}")
+
+#     for i, string in enumerate(string_ints):
+#         for j in range(i+1, len(string_ints )):
+#             digits_off = 0
+#             string2 = string_ints[j] #240, 241
+#             if len(string) != len(string2) or string == string2:
+#                 continue
+#             for k in range(len(string)):
+#                 if string[k] != string2[k]:
+#                     digits_off += 1
+#             if digits_off <= 1:
+#                 num_pairs += 1
+
+#     return num_pairs
+
+
