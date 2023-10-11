@@ -629,3 +629,47 @@
 #     return num_pairs
 
 
+"""
+    leetcode: coinchange2
+"""
+def change(self, amount, coins):
+    # """
+    # :type amount: int
+    # :type coins: List[int]
+    # :rtype: int
+    # """
+    # total_ways = 0 #2
+    # stored = {}
+
+    # def count_ways(value, index):
+    #     if value < 0:
+    #         return 0
+    #     if value == 0:
+    #         return 1
+    #     temp = 0
+    #     for i in range(index, len(coins)):
+    #         if (value, i) in stored:
+    #             return stored[(value, i)]
+    #         temp += count_ways(value - coins[i], i)
+    #     stored[(value, index)] = temp
+    #     return temp
+    #     #countways(4,0)
+    #         #countways(3,0)
+    #             #countways(2,0)
+    #                 #countways(1,0)
+    #                     #countways(0,0)
+    #                 #countways(0,1)
+    #             #countways(1,1)
+    #                 #countways(-1,1)
+    #                 #countways(-4,2)
+    #             #countways(-2,2)
+    #         #countways(2,1)
+    #             #countways(1,0)
+    #             #countways(0,1)
+    #             #countways(-3,2)
+    #         #countways(-1,2)
+    #     #countways(3,1)
+    #     #countways(0,2)
+
+
+    # return count_ways(amount, 0)
