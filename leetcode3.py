@@ -673,3 +673,22 @@ def change(self, amount, coins):
 
 
     # return count_ways(amount, 0)
+
+"""
+    leetcode 55: jump game
+"""
+# def canJump(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: bool
+#     """
+
+#     size = len(nums)
+#     search_index = size-1
+
+#     for i in range(size):
+#         if nums[size-1-i] + (size-1-i) >= search_index:
+#             search_index = size-1-i
+#     if search_index == 0:
+#         return True
+#     return False
