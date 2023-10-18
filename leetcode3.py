@@ -692,3 +692,61 @@ def change(self, amount, coins):
 #     if search_index == 0:
 #         return True
 #     return False
+
+"""
+    input: given a string s
+    output: return the number palindromic subsequences
+
+    "abba" => [a,b,b,a, bb, abba] = > 6
+
+    helper function takes in a string
+        iterate through string
+            if forward i not equal to backward i
+                return false
+        return true
+
+    recursive function that takes in left right index
+        check if left or right is oob
+            return
+        check if whole string is palindrome
+            store inside set
+            increase count
+            return recursively call on string + left and right index
+
+    initiate a counter of palindromes
+    create a palindrome set
+    for every letter
+        check if its in the palindome set
+            if is, return true
+        if not, we check if palindrome
+            if is, add to set
+                check recursively
+
+    "abba" => [a,b,b,a, bb, abba] = > 6
+
+"""
+# def num_subsequence_palindromes(string):
+#     num_palindromes = 0
+
+#     def keep_check_palindrome(left, right):
+#         if left < 0 or right > len(string) - 1:
+#             return
+#         if string[left] != string[right]:
+#             return
+#         num_palindromes += 1
+#         return keep_check_palindrome(left-1, right+1)
+
+#     for i in range(len(string)):
+#         if is_palindrome(string[i]):
+#             num_palindromes += 1
+#             keep_check_palindrome(i-1, i+1)
+#             keep_check_palindrome(i, i+1)
+
+#     return num_palindromes
+
+# def is_palindrome(string):
+#     for i in range(len(string)):
+#         if string[i] != string[len(string-i-1)]:
+#             return False
+#     return True
+
