@@ -820,3 +820,24 @@ def change(self, amount, coins):
 
 #     return absolute_product
 
+"""
+leetcode 53: max subarray sum
+"""
+# def maxSubArray(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: int
+#     """
+#     left, right = 0,0
+#     max_sum = nums[0]
+#     curr_sum = 0
+#     while right < len(nums):
+#         curr_sum += nums[right]
+#         max_sum = max(max_sum, curr_sum)
+#         if curr_sum < 0:
+#             left = right
+#             curr_sum = 0
+#         right += 1
+
+#     return max_sum
+
