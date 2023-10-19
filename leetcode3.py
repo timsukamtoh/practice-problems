@@ -750,3 +750,28 @@ def change(self, amount, coins):
 #             return False
 #     return True
 
+"""
+    leetcode 48: rotate an image
+
+"""
+# def rotate(self, matrix):
+#     """
+#     :type matrix: List[List[int]]
+#     :rtype: None Do not return anything, modify matrix in-place instead.
+
+#     >>>a = [[1, 2, 3],
+#         [4, 5, 6],
+#         [7, 8, 9]]
+#     >>>solution(a)
+#     [[7, 4, 1],
+#     [8, 5, 2],
+#     [9, 6, 3]]
+
+#     """
+
+#     for r in range(len(matrix)):
+#         for c in range(r , len(matrix[0])):
+#             temp = matrix[r][c]
+#             matrix[r][c] = matrix[c][r]
+#             matrix[c][r] = temp
+#         matrix[r].reverse()
