@@ -775,3 +775,48 @@ def change(self, amount, coins):
 #             matrix[r][c] = matrix[c][r]
 #             matrix[c][r] = temp
 #         matrix[r].reverse()
+
+
+
+"""
+    mximum product subarray:
+
+    input: nums
+    return: largest product of conintuous subarray
+
+    initiate a max product = 1
+    curr product = 1
+    create a structure to store absolute max
+    local min and local max
+    keep track of number of negatives
+
+    iterate through nums:
+        curr_product  will become curr_product * num
+        compare local max to curr_product and set to local max
+        compare local min to curr_product and set to local min
+        compare absolute to local max and set to absolute
+        if number negatives is divisbile by 2
+            compare absolute to local min
+
+    return absolute max
+
+
+    [2,1,0,1,1,6]
+"""
+# def maxProduct(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: int
+#     """
+#     absolute_product = nums[0]
+#     local_max = 1
+#     local_min = 1
+
+#     for num in nums:
+#         temp = num * local_max
+#         local_max = max(temp, num* local_min, num)
+#         local_min = min(temp, num* local_min, num)
+#         absolute_product = max(local_max, absolute_product)
+
+#     return absolute_product
+
