@@ -841,3 +841,39 @@ leetcode 53: max subarray sum
 
 #     return max_sum
 
+"""
+min flips
+input: target string of same length
+    start from a string of 5 zeros
+output: return num of flips
+
+ex:
+target: 01011 given: 01011
+                      ^^^
+return 3
+
+
+initiate num of flips
+initiate final str
+initiate str of current "value"
+
+iterate through target string from front to back
+    if the current char in target string is equal to current "value"
+        continue
+    else:
+        flip current value
+        and increment num flips
+
+"""
+
+# def min_flips(target): #01011
+#     num_flips = 0 #3
+#     current = "0" #1
+#     for char in target: #1
+#         if char == current:
+#             continue
+#         else:
+#             num_flips += 1
+#             current = char
+#     return num_flips
+
