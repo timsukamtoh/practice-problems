@@ -877,3 +877,52 @@ iterate through target string from front to back
 #             current = char
 #     return num_flips
 
+"""
+input: num rows
+output: num rows of rows in pascals triangle
+
+                1
+            1        1
+        1       2       1
+    1       3       3       1
+1       4       6       4       1
+
+output = [[1]]
+if num rows is 1
+    return output
+
+last row will be initialized to [1, 1]
+
+if num rows is 2
+    return ouput appended with last row
+
+
+iterate through the num of rows in a range from 2 to num rows
+    curr row set to empty array
+    iterate through curr row and build on it + 1 in range since we want to keep increasing length of row
+        if  index is 0 or index is equal to length of last row
+            current append 1
+        else
+            current row append last row at index + last row at index - 1
+    output append curr row
+    last_row = output last elem
+
+return output
+"""
+
+# def pascals_rows(num_rows): #5
+#     output = []
+#     if num_rows == 0:
+#         return output
+#     for r in range(num_rows):
+#         last_row = output[-1]
+#         curr_row = []
+#         for i in range(len(last_row)+1):
+#             if i == 0 or i == len(last_row):
+#                 curr_row.append(1)
+#             else:
+#                 curr_row.append(last_row[i] + last_row[i-1])
+#         output.append(curr_row)
+
+
+#     return output
