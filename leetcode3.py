@@ -926,3 +926,30 @@ return output
 
 
 #     return output
+
+
+"""Leetcode 983: Min cost for tickets"""
+
+# def mincostTickets(self, days, costs):
+#     """
+#     :type days: List[int]
+#     :type costs: List[int]
+#     :rtype: int
+#     """
+#     dp = [float('inf')] * 366
+#     dp[0] = 0
+#     travel_dates = set(days)
+#     cheapest = min(costs)
+
+#     for d in range(1, 366):
+#         if d not in travel_dates:
+#             dp[d] = dp[d-1]
+#         else:
+#             day_cost = cheapest + dp[d-1]
+#             week_cost = costs[1] + dp[d-7] if d - 7 >= 0 else float('inf')
+#             month_cost = costs[2] + dp[d-30] if d - 30 >= 0 else float('inf')
+#             less_than_week = costs[1] if d <= 7 else float('inf')
+#             less_than_month = costs[2] if d <= 30 else float('inf')
+#             dp[d] = min([day_cost, week_cost, month_cost, less_than_week, less_than_month])
+
+#     return dp[days[-1]] if dp[days[-1]] != float('inf') else -1
