@@ -953,3 +953,61 @@ return output
 #             dp[d] = min([day_cost, week_cost, month_cost, less_than_week, less_than_month])
 
 #     return dp[days[-1]] if dp[days[-1]] != float('inf') else -1
+
+
+"""
+input: array of integers
+output: the int that is most frequent
+    must be at least half the len of array
+
+solution 1:
+
+initiate current most to be 0
+initiate frequency counter
+then loop through array
+    update freq counter
+    check if elem at freq counter plus 1 is greater than current most
+        update current most
+
+if current most is greater than half the array
+    return current most else -1
+
+solution 2:
+
+initiate max to be 1
+initiate current most to be 1
+
+sort array
+
+iterate through indexes of array from range 1 to end
+    if array at i is not equal to array at i-1
+        compare max to current
+        reset current to 1
+    else
+        increment current most by 1
+
+return max if max is greater than half
+
+examples:
+    [0,0,1] => 0
+    [1,1,2,3,4,5] => -1
+    [1,2,3,5,5,5]
+"""
+
+def most_freq(numbers):
+    max_freq_elem = numbers[0] #5
+    max_freq = 1 #3
+    current_freq = 1 # 3
+    numbers.sort()
+
+    for i in range(1, len(numbers)): #i=5
+        if numbers[i] != numbers[i-1]:
+            current_freq = 1
+        else:
+            current_freq += 1
+        if current_freq > max_freq:
+            max_freq = current_freq
+            max_freq_elem = numbers[i-1]
+
+    return max_freq_elem if max_freq >= len(numbers) //2 else -1
+
