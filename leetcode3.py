@@ -994,20 +994,46 @@ examples:
     [1,2,3,5,5,5]
 """
 
-def most_freq(numbers):
-    max_freq_elem = numbers[0] #5
-    max_freq = 1 #3
-    current_freq = 1 # 3
-    numbers.sort()
+# def most_freq(numbers):
+#     max_freq_elem = numbers[0] #5
+#     max_freq = 1 #3
+#     current_freq = 1 # 3
+#     numbers.sort()
 
-    for i in range(1, len(numbers)): #i=5
-        if numbers[i] != numbers[i-1]:
-            current_freq = 1
-        else:
-            current_freq += 1
-        if current_freq > max_freq:
-            max_freq = current_freq
-            max_freq_elem = numbers[i-1]
+#     for i in range(1, len(numbers)): #i=5
+#         if numbers[i] != numbers[i-1]:
+#             current_freq = 1
+#         else:
+#             current_freq += 1
+#         if current_freq > max_freq:
+#             max_freq = current_freq
+#             max_freq_elem = numbers[i-1]
 
-    return max_freq_elem if max_freq >= len(numbers) //2 else -1
+#     return max_freq_elem if max_freq >= len(numbers) //2 else -1
+
+"""leetcode 200: Num Islands"""
+
+# def numIslands(self, grid):
+#     """
+#     :type grid: List[List[str]]
+#     :rtype: int
+#     """
+#     def dfs(r, c, visited):
+#         if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]) or (r,c) in visited or grid[r][c] == "0":
+#             return
+#         visited.add((r,c))
+#         dfs(r+1, c, visited)
+#         dfs(r-1, c, visited)
+#         dfs(r, c+1, visited)
+#         dfs(r, c-1, visited)
+
+#     seen = set()
+#     num_islands = 0
+#     for r in range(len(grid)):
+#         for c in range(len(grid[0])):
+#             if grid[r][c] == "1" and (r,c) not in seen:
+#                 num_islands += 1
+#                 dfs(r,c, seen)
+
+#     return num_islands
 
