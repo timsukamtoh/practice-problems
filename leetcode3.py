@@ -1037,3 +1037,47 @@ examples:
 
 #     return num_islands
 
+"""leetcode 130: surrounded regions"""
+
+# def solve(self, board):
+#     """
+#     :type board: List[List[str]]
+#     :rtype: None Do not return anything, modify board in-place instead.
+#     """
+#     ROW, COL = len(board), len(board[0])
+#     visited = set()
+
+#     def dfs(r,c):
+#         """dfs to find which squares to not flip"""
+#         if (
+#                 r < 0
+#                 or c < 0
+#                 or r >= ROW
+#                 or c >= COL
+#                 or (r,c) in visited
+#                 or board[r][c] == "X"
+#         ):
+#             return
+#         visited.add((r,c))
+#         dfs(r+1, c)
+#         dfs(r-1, c)
+#         dfs(r, c+1)
+#         dfs(r, c-1)
+
+
+#     for r in range(ROW):
+#         dfs(r,0)
+#         dfs(r, COL-1)
+
+#     for c in range(COL):
+#         dfs(0,c)
+#         dfs(ROW-1,c)
+
+#     for r in range(ROW):
+#         for c in range(COL):
+#             if board[r][c] == "O" and (r,c) not in visited:
+#                 board[r][c] = "X"
+
+
+
+
