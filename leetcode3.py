@@ -1081,3 +1081,49 @@ examples:
 
 
 
+"""
+input: string contains "S" or "P" which are seats or plants
+output: int that is the number of possible pairings of seats that can exist
+
+
+
+
+
+initiate number of ways
+initiate number of "S"
+initiate possible room combos that are inbetween S
+iterate through string
+    increment possible combo
+    if we see an "S"
+        increment "S" counter
+        increment number of ways by possible combo
+        reset possible combo
+
+if S even
+    return number of ways else 0
+
+>>> corridors("PPSPSP")
+1
+
+>>> corridors("S")
+0
+
+>>> corridors("SSPPSPS")
+3
+
+>>> corridors("SPPS|P|P|SPS|P|SS")
+6
+"""
+
+# def corridors(str):
+#     ways = 0
+#     number_of_s = 0
+#     combo = 0 #2
+#     for char in str:
+#         combo += 1
+#         if char  == "S":
+#             number_of_s += 1
+#             ways +=  combo
+#             combo = 0
+
+#     return number_of_s if number_of_s % 2  == 0 else 0
