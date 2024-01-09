@@ -19,3 +19,35 @@ leetcode 2789: largest element after merge operations
 #         nums.pop(i)
 
 #     return max(dp)
+
+"""
+leetcode 875: Koko Eating Bananas
+"""
+# def minEatingSpeed(self, piles, h):
+#     biggest = max(piles)
+#     if h <= len(piles):
+#         return biggest
+
+#     def hours_to_eat(rate):
+#         total_h = 0
+#         for pile in piles:
+#             if pile % rate == 0:
+#                 total_h += pile//rate
+#             else:
+#                 total_h += pile//rate + 1
+#         return total_h
+
+#     left = 1
+#     right = biggest
+#     slowest = biggest
+#     while left <= right:
+
+#         k = (left + right)//2
+#         print(k)
+
+#         if hours_to_eat(k) <= h:
+#             slowest = min(k, slowest)
+#             right = k-1
+#         else:
+#             left = k + 1
+#     return slowest
