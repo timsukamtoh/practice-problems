@@ -51,3 +51,35 @@ leetcode 875: Koko Eating Bananas
 #         else:
 #             left = k + 1
 #     return slowest
+"""
+leetcode 2226: Maximum Candies to K Children
+"""
+# def maximumCandies(self, candies, k):
+#     """
+#     :type candies: List[int]
+#     :type k: int
+#     :rtype: int
+
+#     >>> maximumCandies([4, 7, 5], 4)
+#     3
+
+#     """
+#     most = 1
+#     total = sum(candies)
+
+#     if total < k:
+#         return 0
+#     left = 1
+#     right = max(candies)
+#     while left <= right:
+#         pile_size = (left+right)//2
+#         piles = 0
+#         for p in candies:
+#             piles += p//pile_size
+#         if piles < k or pile_size*k > total:
+#             right = pile_size-1
+#         else:
+#             most = max(most, pile_size)
+#             left = pile_size+1
+
+#     return most
