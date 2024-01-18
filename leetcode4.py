@@ -83,3 +83,63 @@ leetcode 2226: Maximum Candies to K Children
 #             left = pile_size+1
 
 #     return most
+
+"""
+leetcode 138: copy list with random pointer
+"""
+# def copyRandomList(self, head):
+#     """
+#     :type head: Node
+#     :rtype: Node
+#     """
+#     if not head:
+#         return
+#     pointers = {}
+#     curr = head
+#     while curr:
+#         new_node = Node(curr.val)
+#         pointers[curr] = new_node
+#         curr = curr.next
+
+#     curr = head
+#     while curr:
+#         copy = pointers[curr] if curr else None
+#         copy.next = pointers[curr.next] if curr.next else None
+#         copy.random = pointers[curr.random] if curr.random else None
+#         curr = curr.next
+
+#     return pointers[head]
+
+"""
+leetcode 2: add two numbers
+"""
+# def addTwoNumbers(self, l1, l2):
+#     """
+#     :type l1: ListNode
+#     :type l2: ListNode
+#     :rtype: ListNode
+#     """
+
+#     curr1 = l1
+#     curr2 = l2
+#     total = 0
+#     length = 0
+#     while curr1 or curr2:
+#         total += curr1.val * 10**length if curr1 else 0
+#         total += curr2.val * 10**length if curr2 else 0
+#         curr1 = curr1.next if curr1 else None
+#         curr2 = curr2.next if curr2 else None
+#         length+=1
+
+#     head = ListNode(0)
+#     curr = head
+#     if total == 0:
+#         return head
+
+#     while total > 0:
+#         val = total%10
+#         curr.next = ListNode(val)
+#         total //= 10
+#         curr = curr.next
+
+#     return head.next
