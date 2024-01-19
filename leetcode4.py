@@ -143,3 +143,21 @@ leetcode 2: add two numbers
 #         curr = curr.next
 
 #     return head.next
+
+"""leetcode 287: Duplicate number"""
+# def findDuplicate(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: int
+#     """
+#     slow, fast = 0,0
+#     while slow != fast or slow == 0:
+#         slow = nums[slow]
+#         fast = nums[nums[fast]]
+
+#     start = 0
+#     while start != slow:
+#         start = nums[start]
+#         slow = nums[slow]
+
+#     return start
