@@ -161,3 +161,18 @@ leetcode 2: add two numbers
 #         slow = nums[slow]
 
 #     return start
+
+"""leetcode 739: daily temperatures"""
+# def dailyTemperatures(self, temperatures):
+#     """
+#     :type temperatures: List[int]
+#     :rtype: List[int]
+#     """
+#     stack = [] #[(6,76),(7,73)]
+#     answer = [0]*len(temperatures) #[1,1,4,2,1,1,0,0]
+#     for i in range(len(answer)):
+#         while stack and temperatures[i] > stack[-1][1]:
+#             stackI, stackT = stack.pop()
+#             answer[stackI] = i - stackI
+#         stack.append((i, temperatures[i]))
+#     return answer
