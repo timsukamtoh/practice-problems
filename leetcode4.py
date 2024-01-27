@@ -176,3 +176,26 @@ leetcode 2: add two numbers
 #             answer[stackI] = i - stackI
 #         stack.append((i, temperatures[i]))
 #     return answer
+
+
+"""leetcode 39: Combination Sum"""
+# def combinationSum(self, candidates, target):
+#     """
+#     :type candidates: List[int]
+#     :type target: int
+#     :rtype: List[List[int]]
+#     """
+#     ans = []
+#     curr_elems = []
+#     def dfs(index):
+#         if index >= len(candidates) or sum(curr_elems) > target:
+#             return
+#         curr_elems.append(candidates[index])
+#         if sum(curr_elems) == target:
+#             ans.append(curr_elems[:])
+#         dfs(index)
+#         curr_elems.pop()
+#         dfs(index+1)
+
+#     dfs(0)
+#     return ans
