@@ -199,3 +199,27 @@ leetcode 2: add two numbers
 
 #     dfs(0)
 #     return ans
+
+"""leetcode 90: Subsets 2"""
+# def subsetsWithDup(self, nums):
+#     """
+#     :type nums: List[int]
+#     :rtype: List[List[int]]
+#     """
+#     ans = set()
+#     curr = []
+#     nums.sort()
+#     def dfs(index):
+#         shift = 1
+#         if index >= len(nums):
+#             ans.add(tuple(curr[:]))
+#             return
+#         curr.append(nums[index])
+#         dfs(index+1)
+#         curr.pop()
+#         while index+shift <len(nums) and nums[index] == nums[index+shift]:
+#             shift += 1
+#         dfs(index+shift)
+
+#     dfs(0)
+#     return list(ans)
