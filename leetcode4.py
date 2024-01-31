@@ -223,3 +223,33 @@ leetcode 2: add two numbers
 
 #     dfs(0)
 #     return list(ans)
+
+"""leetcode 40: combination sum2"""
+# def combinationSum2(self, candidates, target):
+#     """
+#     :type candidates: List[int]
+#     :type target: int
+#     :rtype: List[List[int]]
+#     """
+#     ans = []
+#     curr = []
+#     candidates.sort()
+#     def backtrack(index):
+#         if sum(curr) == target:
+#             ans.append(curr[:])
+#             return
+#         if index >= len(candidates) or sum(curr) > target:
+#             return
+
+#         #add current candidate
+#         curr.append(candidates[index])
+#         backtrack(index+1)
+#         curr.pop()
+
+#         #skip current candidate
+#         while index + 1 < len(candidates) and candidates[index] == candidates[index+1]:
+#             index+=1
+#         backtrack(index+1)
+
+#     backtrack(0)
+#     return ans
