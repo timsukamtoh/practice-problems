@@ -253,3 +253,12 @@ leetcode 2: add two numbers
 
 #     backtrack(0)
 #     return ans
+
+"""leetcode 290: word pattern"""
+
+def wordPattern(self, pattern, s):
+    """
+    :type pattern: str
+    :type s: str
+    :rtype: bool
+    """
