@@ -262,3 +262,19 @@ def wordPattern(self, pattern, s):
     :type s: str
     :rtype: bool
     """
+    char_map = {}
+    word_list = s.split()
+    if len(pattern) != len(word_list):
+        return False
+    values = set()
+    for i in range(len(pattern)):
+        if pattern[i] in char_map:
+            if char_map[pattern[i]] != word_list[i]:
+                return False
+        else:
+            if word_list[i] in values:
+                return False
+            char_map[pattern[i]] = word_list[i]
+            values.add(word_list[i])
+
+    return True
