@@ -1,13 +1,13 @@
-#leetcode 704: Binary Search
+# leetcode 704: Binary Search
 def search(self, nums, target):
     """
     :type nums: List[int]
     :type target: int
     :rtype: int
     """
-    left, right = 0, len(nums)-1
+    left, right = 0, len(nums) - 1
     while left <= right:
-        mid = (left+right)//2
+        mid = (left + right) // 2
         if target == nums[mid]:
             return mid
         elif target > nums[mid]:
@@ -17,7 +17,8 @@ def search(self, nums, target):
 
     return -1
 
-###leetcode 74: Search a 2D Matrix###
+
+# leetcode 74: Search a 2D Matrix###
 def searchMatrix(self, matrix, target):
     """
     :type matrix: List[List[int]]
@@ -27,12 +28,12 @@ def searchMatrix(self, matrix, target):
     top, bot = 0, len(matrix) - 1
     while top <= bot:
         print(top, bot)
-        mid = (top+bot)//2
+        mid = (top + bot) // 2
         print(mid)
-        if target >= matrix[mid][0] and target <= matrix[mid][len(matrix[mid])-1]:
-            left, right = 0, len(matrix[mid])-1
+        if target >= matrix[mid][0] and target <= matrix[mid][len(matrix[mid]) - 1]:
+            left, right = 0, len(matrix[mid]) - 1
             while left <= right:
-                center = (left+right)//2
+                center = (left + right) // 2
                 if target == matrix[mid][center]:
                     return True
                 elif target < matrix[mid][center]:
