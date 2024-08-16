@@ -25,25 +25,22 @@ def searchMatrix(self, matrix, target):
     :type target: int
     :rtype: bool
     """
-    top, bot = 0, len(matrix) - 1
+    top, bot = 0, len(matrix)-1
     while top <= bot:
-        print(top, bot)
-        mid = (top + bot) // 2
-        print(mid)
-        if target >= matrix[mid][0] and target <= matrix[mid][len(matrix[mid]) - 1]:
-            left, right = 0, len(matrix[mid]) - 1
+        row = (top + bot)//2
+        if matrix[row][0] <= target <= matrix[row][-1]:
+            left, right = 0, len(matrix[row])-1
             while left <= right:
-                center = (left + right) // 2
-                if target == matrix[mid][center]:
+                col = (left + right)//2
+                if target == matrix[row][col]:
                     return True
-                elif target < matrix[mid][center]:
-                    right = center - 1
+                elif target < matrix[row][col]:
+                    right = col - 1
                 else:
-                    left = center + 1
+                    left = col + 1
             return False
-        elif target < matrix[mid][0]:
-            bot = mid - 1
+        elif matrix[row][0] > target:
+            bot = row - 1
         else:
-            top = mid + 1
-
+            top = row + 1
     return False
