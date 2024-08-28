@@ -121,3 +121,45 @@ def search(self, nums, target):
             else:
                 right = mid - 1
     return -1
+
+
+# leetcode 981. Time Based Key-Value Store
+class TimeMap(object):
+
+    def __init__(self):
+        self.storage = defaultdict(list)
+
+    def set(self, key, value, timestamp):
+        """
+        :type key: str
+        :type value: str
+        :type timestamp: int
+        :rtype: None
+        """
+        self.storage[key].append((timestamp, value))
+
+    def get(self, key, timestamp):
+        """
+        :type key: str
+        :type timestamp: int
+        :rtype: str
+        """
+        print("start")
+        arr = self.storage[key]
+        left, right = 0, len(arr) - 1
+        while left <= right:
+            print("left", left)
+            mid = (left + right) // 2
+            if arr[mid][0] == timestamp:
+                print("end")
+                return arr[mid][1]
+            elif arr[mid][0] < timestamp:
+                left = mid + 1
+            else:
+                right = mid - 1
+        if left == 0:
+            print("end")
+
+            return ""
+        print("end")
+        return arr[left - 1][1]
