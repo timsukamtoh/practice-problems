@@ -90,8 +90,8 @@ def findMin(self, nums):
     left, right = 0, len(nums) - 1
     while left <= right:
         mid = (left + right) // 2
-        smallest = min(nums[mid], smallest)
-        if nums[mid] > nums[right]:
+        smallest = min(smallest, nums[mid])
+        if nums[mid] >= nums[right]:
             left = mid + 1
         else:
             right = mid - 1
