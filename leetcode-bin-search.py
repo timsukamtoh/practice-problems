@@ -144,22 +144,17 @@ class TimeMap(object):
         :type timestamp: int
         :rtype: str
         """
-        print("start")
         arr = self.storage[key]
         left, right = 0, len(arr) - 1
-        while left <= right:
-            print("left", left)
+        while left <= right: #finding the value at key at time
             mid = (left + right) // 2
             if arr[mid][0] == timestamp:
-                print("end")
                 return arr[mid][1]
             elif arr[mid][0] < timestamp:
                 left = mid + 1
             else:
                 right = mid - 1
-        if left == 0:
-            print("end")
 
+        if left == 0: # in case no time exists at key
             return ""
-        print("end")
-        return arr[left - 1][1]
+        return arr[left - 1][1] #in case there is an earlier time at key
