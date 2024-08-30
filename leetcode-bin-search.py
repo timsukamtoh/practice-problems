@@ -124,29 +124,22 @@ def search(self, nums, target):
 
 
 # leetcode 981. Time Based Key-Value Store
-class TimeMap(object):
+class TimeMap:
 
     def __init__(self):
-        self.storage = defaultdict(list)
+        self.storage = {}
 
     def set(self, key, value, timestamp):
-        """
-        :type key: str
-        :type value: str
-        :type timestamp: int
-        :rtype: None
-        """
-        self.storage[key].append((timestamp, value))
+        if key in self.storage:
+            self.storage[key].append((timestamp, value))
+        else:
+            self.storage[key] = [(timestamp, value)]
 
     def get(self, key, timestamp):
-        """
-        :type key: str
-        :type timestamp: int
-        :rtype: str
-        """
-        arr = self.storage[key]
+        arr = self.storage.get(key,[])
         left, right = 0, len(arr) - 1
-        while left <= right: #finding the value at key at time
+
+        while left <= right:
             mid = (left + right) // 2
             if arr[mid][0] == timestamp:
                 return arr[mid][1]
@@ -155,6 +148,6 @@ class TimeMap(object):
             else:
                 right = mid - 1
 
-        if left == 0: # in case no time exists at key
+        if left == 0:
             return ""
-        return arr[left - 1][1] #in case there is an earlier time at key
+        return arr[left - 1][1] # return highest known timestamp value
