@@ -136,7 +136,7 @@ class TimeMap:
             self.storage[key] = [(timestamp, value)]
 
     def get(self, key, timestamp):
-        arr = self.storage.get(key,[])
+        arr = self.storage.get(key, [])
         left, right = 0, len(arr) - 1
 
         while left <= right:
@@ -150,4 +150,20 @@ class TimeMap:
 
         if left == 0:
             return ""
-        return arr[left - 1][1] # return highest known timestamp value
+        return arr[left - 1][1]  # return highest known timestamp value
+
+
+# leetcode 4. Median of Two Sorted Arrays
+def findMedianSortedArrays(self, nums1, nums2):
+    """
+    :type nums1: List[int]
+    :type nums2: List[int]
+    :rtype: float
+    """
+    nums1.extend(nums2)
+    nums1.sort()
+    size = len(nums1)
+    if size % 2 == 0:
+        return (nums1[size // 2] + nums1[(size // 2) - 1]) / 2.0
+    else:
+        return nums1[size // 2]
