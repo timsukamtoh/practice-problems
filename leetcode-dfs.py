@@ -13,7 +13,8 @@ def numIslands(self, grid):
             c < 0 or
             r >= ROW or
             c >= COL or
-            grid[r][c] == "0"}:
+            grid[r][c] == "0" or
+            (r,c) in visited}:
             return
         else:
             visited.add((r,c))
