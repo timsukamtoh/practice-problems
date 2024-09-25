@@ -34,7 +34,7 @@ def numIslands(self, grid):
     return num_islands
 
 
-#
+# leetcode 695. Max Area of Island
 def maxAreaOfIsland(self, grid):
     """
     :type grid: List[List[int]]
@@ -44,7 +44,7 @@ def maxAreaOfIsland(self, grid):
     visited = set()
     ROW, COL = len(grid), len(grid[0])
 
-    def dfs(r, c, curr_area):
+    def dfs(r, c):
         if (
             r < 0
             or c < 0
@@ -53,19 +53,20 @@ def maxAreaOfIsland(self, grid):
             or grid[r][c] == 0
             or (r, c) in visited
         ):
-            print("exit dfs")
-            return
-        else:
-            visited.add((r, c))
-            max_area = max(max_area, curr_area + 1)
-            dfs(r + 1, c, curr_area + 1)
-            dfs(r - 1, c, curr_area + 1)
-            dfs(r, c + 1, curr_area + 1)
-            dfs(r, c - 1, curr_area + 1)
+            return 0
+
+        visited.add((r, c))
+
+        area = 1
+
+        area += dfs(r + 1, c)
+        area += dfs(r - 1, c)
+        area += dfs(r, c + 1)
+        area += dfs(r, c - 1)
+        return area
 
     for r in range(ROW):
         for c in range(COL):
             if grid[r][c] == 1 and (r, c) not in visited:
-                print("enter dfs at ")
-                dfs(r, c, 0)
+                max_area = max(max_area, dfs(r, c))
     return max_area
