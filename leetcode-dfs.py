@@ -63,10 +63,12 @@ def maxAreaOfIsland(self, grid):
         area += dfs(r - 1, c)
         area += dfs(r, c + 1)
         area += dfs(r, c - 1)
+
         return area
 
     for r in range(ROW):
         for c in range(COL):
             if grid[r][c] == 1 and (r, c) not in visited:
                 max_area = max(max_area, dfs(r, c))
+
     return max_area
