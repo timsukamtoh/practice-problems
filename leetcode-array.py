@@ -1,14 +1,20 @@
 # leetcode 347. Top K Frequent Elements
 def topKFrequent(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: List[int]
+    """
 
-        freq_counter = collections.Counter(nums)
-        sorted_nums = sorted(freq_counter.items(), key=lambda x: (x[1],x[0]), reverse=True)
-        top_k = []
-        for i in range(k):
-            top_k.append(sorted_nums[i][0])
-        return top_k
+    counter = collections.Counter(nums)
+
+    freq = [[] for i in range(len(nums)+1)]
+    for num,count in counter.items():
+        freq[count].append(num)
+
+    res = []
+    for i in range(len(freq)-1,-1,-1):
+        for num in freq[i]:
+            res.append(num)
+            if len(res) == k:
+                return res
