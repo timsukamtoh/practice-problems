@@ -18,3 +18,17 @@ def topKFrequent(self, nums, k):
             res.append(num)
             if len(res) == k:
                 return res
+
+# leetcode 49. Group Anagrams
+def groupAnagrams(self, strs):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
+    mapping = collections.defaultdict(list)
+
+    for st in strs:
+        key = tuple(sorted(st))
+        mapping[key].append(st)
+
+    return list(mapping.values())
