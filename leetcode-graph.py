@@ -74,8 +74,12 @@ def maxAreaOfIsland(self, grid):
     return max_area
 
 
-# leetcode
-def cloneGraph(self, node: Optional["Node"]) -> Optional["Node"]:
+# leetcode 133. Clone Graph
+def cloneGraph(self, node):
+    """
+    :type node: Node
+    :rtype: Node
+    """
     if not node:
         return node
 
@@ -94,9 +98,9 @@ def cloneGraph(self, node: Optional["Node"]) -> Optional["Node"]:
             nodes[n] = Node(n.val)
 
         for neigh in n.neighbors:
-            queue.append(neigh)
             if neigh not in nodes:
                 nodes[neigh] = Node(neigh.val)
             nodes[n].neighbors.append(nodes[neigh])
+            queue.append(neigh)
 
     return nodes[node]
