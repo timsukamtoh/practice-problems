@@ -104,3 +104,24 @@ def cloneGraph(self, node):
             queue.append(neigh)
 
     return nodes[node]
+
+
+# leetcode:
+def islandsAndTreasure(self, grid: List[List[int]]) -> None:
+
+    ROW, COL = len(grid), len(grid[0])
+
+    def dfs(r: int, c: int, step: int) -> None:
+        if r < 0 or c < 0 or r >= ROW or c >= COL or grid[r][c] < step:
+            return
+
+        grid[r][c] = step
+        dfs(r + 1, c, step + 1)
+        dfs(r - 1, c, step + 1)
+        dfs(r, c + 1, step + 1)
+        dfs(r, c - 1, step + 1)
+
+    for r in range(ROW):
+        for c in range(COL):
+            if grid[r][c] == 0:
+                dfs(r, c, 0)
