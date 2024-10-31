@@ -106,7 +106,7 @@ def cloneGraph(self, node):
     return nodes[node]
 
 
-# leetcode:
+# leetcode: Islands and Treasure / Walls and Gates
 def islandsAndTreasure(self, grid: List[List[int]]) -> None:
 
     ROW, COL = len(grid), len(grid[0])
@@ -125,3 +125,31 @@ def islandsAndTreasure(self, grid: List[List[int]]) -> None:
         for c in range(COL):
             if grid[r][c] == 0:
                 dfs(r, c, 0)
+
+
+# leetcode 994: Rotting Oranges
+def orangesRotting(self, grid):
+    """
+    :type grid: List[List[int]]
+    :rtype: int
+    """
+    grd = {}
+    ROW, COL = len(grid), len(grid[0])
+
+    def dfs(r, c, dis):
+        if r < 0 or c < 0 or r >= ROW or c >= COL or grid[r][c] == 0:
+            return
+        if grid[r][c] == 1:
+            grd[(r, c)] = min(grd.get((r, c)), dis)
+
+        dfs(r + 1, c, dis + 1)
+        dfs(r - 1, c, dis + 1)
+        dfs(r, c + 1, dis + 1)
+        dfs(r, c - 1, dis + 1)
+
+    for r in range(ROW):
+        for c in range(COL):
+            if grid[r][c] == 2:
+                dfs(r, c, 0)
+
+    return max(grd.values())
