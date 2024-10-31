@@ -133,23 +133,39 @@ def orangesRotting(self, grid):
     :type grid: List[List[int]]
     :rtype: int
     """
-    grd = {}
+    fresh = 0
     ROW, COL = len(grid), len(grid[0])
-
-    def dfs(r, c, dis):
-        if r < 0 or c < 0 or r >= ROW or c >= COL or grid[r][c] == 0:
-            return
-        if grid[r][c] == 1:
-            grd[(r, c)] = min(grd.get((r, c)), dis)
-
-        dfs(r + 1, c, dis + 1)
-        dfs(r - 1, c, dis + 1)
-        dfs(r, c + 1, dis + 1)
-        dfs(r, c - 1, dis + 1)
+    queue = collections.deque([])
 
     for r in range(ROW):
         for c in range(COL):
             if grid[r][c] == 2:
-                dfs(r, c, 0)
+                queue.append((r, c))
+            if grid[r][c] == 1:
+                fresh += 1
 
-    return max(grd.values())
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    minutes = 0
+
+    while queue and fresh > 0:
+        size = len(queue)
+        minutes += 1
+
+        for i in range(size):
+            curr = queue.popleft()
+            row, col = curr[0], curr[1]
+
+            for direct in directions:
+                r = row + direct[0]
+                c = col + direct[1]
+
+                if r >= 0 and c >= 0 and r < ROW and c < COL and grid[r][c] == 1:
+                    grid[r][c] = 2
+                    fresh -= 1
+
+                    queue.append((r, c))
+
+    if fresh == 0:
+        return minutes
+    else:
+        return -1
