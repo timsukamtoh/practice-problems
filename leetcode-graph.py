@@ -144,8 +144,8 @@ def orangesRotting(self, grid):
             if grid[r][c] == 1:
                 fresh += 1
 
-    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     minutes = 0
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
     while queue and fresh > 0:
         size = len(queue)
@@ -153,12 +153,10 @@ def orangesRotting(self, grid):
 
         for i in range(size):
             curr = queue.popleft()
-            row, col = curr[0], curr[1]
 
             for direct in directions:
-                r = row + direct[0]
-                c = col + direct[1]
-
+                r = curr[0] + direct[0]
+                c = curr[1] + direct[1]
                 if r >= 0 and c >= 0 and r < ROW and c < COL and grid[r][c] == 1:
                     grid[r][c] = 2
                     fresh -= 1
