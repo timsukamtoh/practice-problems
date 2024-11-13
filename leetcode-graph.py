@@ -166,3 +166,43 @@ def orangesRotting(self, grid):
         return minutes
     else:
         return -1
+
+
+# leetcode 417: Pacific Atlantic Water Flow
+def pacificAtlantic(self, heights):
+    """
+    :type heights: List[List[int]]
+    :rtype: List[List[int]]
+    """
+    result = []
+    ROW, COL = len(heights), len(heights[0])
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+
+    def dfs_a(r, c):
+        if r < 0 or c < 0:
+            return True
+        else:
+            for direct in directions:
+                curr = heights[r][c]
+                row, col = r + direct[0], c + direct[1]
+                if row < ROW and col < COL and curr >= heights[row][col]:
+                    return dfs_a(row, col)
+        return False
+
+    def dfs_p(r, c):
+        if r > 0 or c > 0:
+            return True
+        else:
+            for direct in directions:
+                curr = heights[r][c]
+                row, col = r + direct[0], c + direct[1]
+                if row >= 0 and col >= 0 and curr >= heights[row][col]:
+                    return dfs_a(row, col)
+        return False
+
+    for r in range(ROW):
+        for c in range(COL):
+            if dfs_a(r, c) and dfs_p(r, c):
+                result.append([r, c])
+
+    return result
