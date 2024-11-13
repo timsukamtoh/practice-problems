@@ -133,7 +133,7 @@ def orangesRotting(self, grid):
     :type grid: List[List[int]]
     :rtype: int
     """
-    fresh = 0
+    freshcount = 0
     ROW, COL = len(grid), len(grid[0])
     queue = collections.deque([])
 
@@ -142,12 +142,12 @@ def orangesRotting(self, grid):
             if grid[r][c] == 2:
                 queue.append((r, c))
             if grid[r][c] == 1:
-                fresh += 1
+                freshcount += 1
 
     minutes = 0
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-    while queue and fresh > 0:
+    while queue and freshcount > 0:
         minutes += 1
 
         for i in range(len(queue)):
@@ -158,11 +158,11 @@ def orangesRotting(self, grid):
             c = curr[1] + direct[1]
             if r >= 0 and c >= 0 and r < ROW and c < COL and grid[r][c] == 1:
                 grid[r][c] = 2
-                fresh -= 1
+                freshcount -= 1
 
                 queue.append((r, c))
 
-    if fresh == 0:
+    if freshcount == 0:
         return minutes
     else:
         return -1
