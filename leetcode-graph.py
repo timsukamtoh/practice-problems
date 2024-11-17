@@ -207,7 +207,9 @@ def pacificAtlantic(self, heights):
 
     return result
 
+
 # leetcode:
+
 
 def pacificAtlantic(self, heights):
     """
@@ -216,39 +218,33 @@ def pacificAtlantic(self, heights):
     """
     result = []
     ROW, COL = len(heights), len(heights[0])
-    pacific, atlantic = set(), set()
-    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    pacific_visited, atlantic_visited = set(), set()
 
-    def touch_p(r, c):
-        if (r == 0 or c == 0):
-            pacific.add((r,c))
-            return True
-        else:
-            for direct in directions:
-                curr = heights[r][c]
-                row, col = r + direct[0], c + direct[1]
-                if (row < ROW and
-                    col < COL and
-                    curr >= heights[row][col] and
-                    (row, col) in pacific):
-                        pacific.add((r,c))
-                        return True
-        return False
+    def dfs(row, col, visited, last_height):
+        if (
+            row < 0
+            or col < 0
+            or row >= ROW
+            or col >= COL
+            or (row, col) in visited
+            or heights[row][col] < last_height
+        ):
+            return
 
-    def dfs_a(r, c):
-        if (r < 0 or c < 0):
-            return True
-        else:
-            for direct in directions:
-                curr = heights[r][c]
-                row, col = r + direct[0], c + direct[1]
-                if row < ROW and col < COL and curr >= heights[row][col]:
-                    return dfs_a(row, col)
-        return False
+        visited.add((row, col))
+
+        dfs(row + 1, col, visited, heights[row][col])
+        dfs(row - 1, col, visited, heights[row][col])
+        dfs(row, col + 1, visited, heights[row][col])
+        dfs(row, col - 1, visited, heights[row][col])
 
     for r in range(ROW):
-        for c in range(COL):
-            if dfs_a(r, c) and dfs_p(r, c):
-                result.append([r, c])
+        dfs(r, 0, pacific_visited, heights[r][0])
+        dfs(r, COL - 1, atlantic_visited, heights[r][COL - 1])
 
+    for c in range(COL):
+        dfs(0, c, pacific_visited, heights[0][c])
+        dfs(ROW - 1, c, atlantic_visited, heights[ROW - 1][c])
+
+    result = [list(tup) for tup in pacific_visited & atlantic_visited]
     return result
